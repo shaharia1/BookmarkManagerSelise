@@ -1,0 +1,63 @@
+<div mat-dialog-content>
+
+    <mat-form-field>
+        
+        <mat-label>Title</mat-label>
+        <input matInput [ngModel]="Category" (ngModelChange)="onTitleChange($event)">
+    </mat-form-field>
+
+    <mat-form-field>
+      
+        <mat-label>Url</mat-label>
+        <input matInput [ngModel]="Category" (ngModelChange)="onUrlChange($event)">
+    </mat-form-field>
+
+    <div class="row" *ngIf="toggle">
+        <div class="col-md-10">
+            
+                <mat-form-field>
+                    <mat-label>Category</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let categorie of categories" [value]="categorie.Name" >
+                            {{categorie.Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+
+        </div>
+       
+
+        <div class="col-md-2" align="right">
+            <div class="example-button-container">
+                <button mat-mini-fab color="accent" (click)="change()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!toggle">
+<div class="col-md-9">
+    <mat-form-field>
+        
+        <mat-label>New Category Name</mat-label>
+        <input matInput [ngModel]="Category" (ngModelChange)="onCategoryAdd($event)" >
+    </mat-form-field>
+</div>
+
+<div class="col-md-3">
+    <button mat-button (click)="change()">Cancel</button>
+    <button mat-button (click)="onSaveCategory()">Save</button>
+</div>
+    </div>
+
+
+
+</div>
+<div mat-dialog-actions>
+
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+    <button mat-button (click)="onSaveBokMark()">Save</button>
+</div>
+<!-- data.animal {{data.name}}-->
