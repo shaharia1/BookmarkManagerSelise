@@ -64,7 +64,7 @@ export class AddBookmarkComponent implements OnInit {
     const a1: Bookmark = {
       Title: this.title,
       Url:this.url,
-      CaegoryName:this.CategoryText
+      CategoryName:this.CategoryText
       
     };
   
