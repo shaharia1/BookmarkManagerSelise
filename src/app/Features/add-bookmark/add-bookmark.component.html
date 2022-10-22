@@ -3,7 +3,7 @@
     <mat-form-field>
         
         <mat-label>Title</mat-label>
-        <input matInput [ngModel]="Category" (ngModelChange)="onTitleChange($event)">
+        <input matInput maxlength="30" [ngModel]="Category" (ngModelChange)="onTitleChange($event)">
     </mat-form-field>
 
     <mat-form-field>
@@ -17,8 +17,8 @@
             
                 <mat-form-field>
                     <mat-label>Category</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let categorie of categories" [value]="categorie.Name" >
+                    <mat-select [ngModel]="Category" (ngModelChange)="onBookChange($event)">
+                        <mat-option *ngFor="let categorie of viewCategories" [value]="categorie.Name" >
                             {{categorie.Name}}
                         </mat-option>
                     </mat-select>

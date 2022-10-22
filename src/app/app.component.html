@@ -26,7 +26,14 @@
         </div>
       </div>
       <div class="card-body">
-        Content
+
+<table > 
+  <tr *ngFor="let object of bookmarks">
+    <td>{{object.Ttle}}</td>
+    
+  </tr>
+</table>
+
       </div>
       <!-- <div class="card-footer">Footer</div> -->
     </div>

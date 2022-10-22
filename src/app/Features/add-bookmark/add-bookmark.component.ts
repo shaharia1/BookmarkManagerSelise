@@ -15,12 +15,15 @@ export class AddBookmarkComponent implements OnInit {
   category: Category = new Category();
   bookmarks: Bookmark[] = [];
   categories: Category[] = [];
-  viewCategories: [] = [];
+  viewCategories: Category[] = [];
+  viewbookmarks: Bookmark[] = [];
+
   Category='';
   categoryName: string | undefined;
   CategoryText: string | undefined;
   url: string | undefined;
   title: string | undefined;
+  productCookie: any;
   constructor(
     public dialogRef: MatDialogRef<AddBookmarkComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Bookmark,
@@ -29,14 +32,18 @@ export class AddBookmarkComponent implements OnInit {
 
   toggle:boolean = true;
 
+ 
+  ngOnInit(): void {
+    // console.log(localStorage.getItem('dataSource'));
+    this.getCategory();
+    this.getBookmark();
+  }
+
   change(){
     this.toggle = !this.toggle;
   }
 
-  ngOnInit(): void {
-    // console.log(localStorage.getItem('dataSource'));
-    this.getCategory();
-  }
+  
   onUrlChange(event: string): void {  
     // console.log(event);
     this.title = event;
@@ -46,6 +53,10 @@ export class AddBookmarkComponent implements OnInit {
     // console.log(event);
     this.url = event;
     
+  }
+
+  onBookChange(event: string){
+    console.log(event);
   }
 
   onSaveBokMark(): void {
@@ -59,7 +70,7 @@ export class AddBookmarkComponent implements OnInit {
   
     this.bookmarks.push(a1);
     
-    
+    console.log(a1);
     localStorage.setItem('Bookmark', JSON.stringify(this.bookmarks));
   }
 
@@ -86,39 +97,25 @@ onSaveCategory():void{
  
   
   
-  
-  // this._Service.saveData("category",this.category).subscribe(data => {
-  //   if (data.type === HttpEventType.Response) {
-  //     this.employee = data;
-  //     alert("Update SuccessFull ");
-  //     this.find();
 
-  //   }
-  // },
-  //   error => {
-  //     alert(error.error.ExceptionMessage);
-  //   });
-  
-  // console.log(this.TaskList);
   this.getCategory();
 }
 
 getCategory(){
-  var tt =localStorage.getItem('Category');
+  localStorage.getItem('Category');
   
+  this.viewCategories = JSON.parse(localStorage.getItem("Category") || '{}');
  
- 
-  
- console.log(localStorage.getItem('Category'));
+
 }
 
-
-
-  // categories: Category[] = [
-  //   {Id: 1, Name: 'Steak'},
-  //   {Id: 2, Name: 'Pizza'},
-  //   {Id: 3, Name: 'Tacos'},
-  // ];
+getBookmark(){
+  localStorage.getItem('Bookmark');
+  
+  this.viewbookmarks = JSON.parse(localStorage.getItem("Bookmark") || '{}');
  
+
+}
+
 
 }

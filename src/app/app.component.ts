@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBookmarkComponent } from './Features/add-bookmark/add-bookmark.component';
+import { Bookmark } from './Models/bookmark';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { AddBookmarkComponent } from './Features/add-bookmark/add-bookmark.compo
 })
 export class AppComponent {
   title = 'BookmarkMaager';
-
+  bookmarks: Bookmark[] = [];
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
@@ -22,6 +23,14 @@ export class AppComponent {
       console.log('The dialog was closed');
       // this.animal = result;
     });
+  }
+
+  getBookmark(){
+    localStorage.getItem('Bookmark');
+    
+    this.bookmarks = JSON.parse(localStorage.getItem("Bookmark") || '{}');
+   
+  
   }
   
 }
