@@ -62,7 +62,7 @@ export class AddBookmarkComponent implements OnInit {
   onSaveBokMark(): void {
     // this.dialogRef.close();
     const a1: Bookmark = {
-      Ttle: this.title,
+      Title: this.title,
       Url:this.url,
       CaegoryName:this.CategoryText
       

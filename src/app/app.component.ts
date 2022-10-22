@@ -13,6 +13,12 @@ export class AppComponent {
   bookmarks: Bookmark[] = [];
   constructor(public dialog: MatDialog) {}
 
+  ngOnInit(): void {
+    // console.log(localStorage.getItem('dataSource'));
+
+    this.getBookmark();
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(AddBookmarkComponent, {
       width: '50%',
@@ -30,7 +36,7 @@ export class AppComponent {
     
     this.bookmarks = JSON.parse(localStorage.getItem("Bookmark") || '{}');
    
-  
+  console.log(localStorage.getItem('Bookmark'))
   }
   
 }

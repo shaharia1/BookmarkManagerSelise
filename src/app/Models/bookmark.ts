@@ -1,5 +1,5 @@
 export class Bookmark {
-    Ttle?: string;
+    Title?: string;
     Url?: string ;
     CaegoryName?: string ;
     
