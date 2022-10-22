@@ -46,12 +46,12 @@ export class AddBookmarkComponent implements OnInit {
   
   onUrlChange(event: string): void {  
     // console.log(event);
-    this.title = event;
+    this.url = event;
     
   }
   onTitleChange(event: string): void {  
     // console.log(event);
-    this.url = event;
+    this.title = event;
     
   }
 

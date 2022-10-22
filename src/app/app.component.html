@@ -30,7 +30,8 @@
 <table class="table"> 
   <tr *ngFor="let object of bookmarks">
     <td>{{object.Title}}</td>
-    <td>{{object.url}}</td>
+    <td><a href="'{{object.url}}'" target="_blank">Details</a> 
+      </td>
   </tr>
 </table>
 
