@@ -55,12 +55,15 @@ export class AddBookmarkComponent implements OnInit {
     
   }
 
-  onBookChange(event: string){
+  onCategoryChange(event: string){
     console.log(event);
+    this.CategoryText = event;
   }
 
   onSaveBokMark(): void {
     // this.dialogRef.close();
+    this.bookmarks = JSON.parse(localStorage.getItem("Bookmark") || '{}');
+
     const a1: Bookmark = {
       Title: this.title,
       Url:this.url,
@@ -85,6 +88,8 @@ onCategoryAdd(event: string): void {
 onSaveCategory():void{
 
   // this.categories = [];
+  this.categories = JSON.parse(localStorage.getItem("Category") || '{}');
+
   const a1: Category = {
     Name: this.categoryName
     

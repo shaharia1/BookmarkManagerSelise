@@ -17,7 +17,7 @@
             
                 <mat-form-field>
                     <mat-label>Category</mat-label>
-                    <mat-select [ngModel]="Category" (ngModelChange)="onBookChange($event)">
+                    <mat-select [ngModel]="Category" (ngModelChange)="onCategoryChange($event)">
                         <mat-option *ngFor="let categorie of viewCategories" [value]="categorie.Name" >
                             {{categorie.Name}}
                         </mat-option>
