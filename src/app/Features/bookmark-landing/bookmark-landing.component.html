@@ -1,0 +1,56 @@
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Bookmark Manager</h3>
+                    </div>
+                    <div class="col-md-6" align="right">
+                        <!-- <button type="button" class="btn btn-default">Default</button> -->
+                        <button type="button" class="btn btn-primary" (click)="openDialog()">Add Bookmak</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+
+
+
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let Category of Categories">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>
+
+                                    {{Category.Name}}
+
+                                </mat-card-title>
+
+                            </mat-card-header>
+                            <mat-card-content>
+                                <table class="table">
+                                    <tr *ngFor="let object of bookmarks">
+                                        <td>{{object.Title}}</td>
+                                        <td><a [routerLink]="['/details']" target="_blank">Details</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

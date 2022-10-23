@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AddBookmarkComponent } from './Features/add-bookmark/add-bookmark.component';
-import { Bookmark } from './Models/bookmark';
-import { Category } from './Models/category';
+import { Bookmark } from 'src/app/Models/bookmark';
+import { Category } from 'src/app/Models/category';
+import { AddBookmarkComponent } from '../add-bookmark/add-bookmark.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-bookmark-landing',
+  templateUrl: './bookmark-landing.component.html',
+  styleUrls: ['./bookmark-landing.component.css']
 })
-export class AppComponent {
+export class BookmarkLandingComponent implements OnInit {
+
   title = 'BookmarkMaager';
   bookmarks: Bookmark[] = [];
   Categories: Category[] = [];
@@ -57,4 +58,5 @@ export class AppComponent {
     this.router.navigate(['/details']);
     
   }
+
 }

@@ -17,11 +17,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { BookmarkdetailsComponent } from './Features/bookmarkdetails/bookmarkdetails.component';
+import { BookmarkLandingComponent } from './Features/bookmark-landing/bookmark-landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddBookmarkComponent
+    AddBookmarkComponent,
+    BookmarkdetailsComponent,
+    BookmarkLandingComponent
   ],
   imports: [
     BrowserModule,
